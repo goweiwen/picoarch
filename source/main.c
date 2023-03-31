@@ -393,6 +393,7 @@ void handle_emu_action(emu_action action)
 			}
 			else if (status == kStatusExitGame) {
 				should_quit = 1;
+				autosave();
 				plat_video_menu_leave();
 			} else if (status == kStatusResetGame) {
 				current_core.retro_reset();
