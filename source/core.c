@@ -112,6 +112,12 @@ void sram_read(void) {
 }
 
 bool state_allowed(void) {
+	// FAKE-08's save states don't work
+	struct retro_system_info *info;
+	if (strcmp(core_name, "fake-08") == 0) {
+		return false;
+	}
+
 	return current_core.retro_serialize_size() > 0;
 }
 
